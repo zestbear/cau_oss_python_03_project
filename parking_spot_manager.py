@@ -50,6 +50,11 @@ def filter_by_location(spots, locations):                                       
     return arg                                                                                                          # arg 반환
 
 
+def sort_by_keyword(spots, keyword):                                    # 정렬 함수
+    sorted_list = sorted(spots, key = lambda x: x.get(keyword))         # lambda와 sorted를 이용하여 정렬한 것을 sorted_list 리스트에 저장
+    return sorted_list                                                  # sorted_list 반환
+
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
     print("Testing the module...")

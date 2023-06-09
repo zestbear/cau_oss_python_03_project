@@ -65,7 +65,7 @@ if __name__ == '__main__':
     print_listdir('./')
     
     # 파일 열기
-    strs = read_file("./input/free_parking_spot.csv")
+    strs = read_file("./input/free_parking_spot_seoul.csv")
 
     # 출력
     for s in strs:
