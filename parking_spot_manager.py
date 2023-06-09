@@ -28,12 +28,34 @@ def print_spots(spots):                                                     # �
         print(str(spots[i]))
 
 
+def filter_by_name(spots, name):                                                # name으로 filter하는 함수
+    arg = [spots[i] for i in range(len(spots)) if name in spots[i].get('name')] # 리스트 함축 기능을 이용하여 필터링한 후, arg 리스트에 넣기
+    return arg                                                                  # arg 반환
+
+def filter_by_city(spots, city):                                                # city로 filter하는 함수
+    arg = [spots[i] for i in range(len(spots)) if city in spots[i].get('city')] # 리스트 함축 기능을 이용하여 필터링한 후, arg 리스트에 넣기
+    return arg                                                                  # arg 반환
+
+def filter_by_district(spots, district):                                                # district로 filter하는 함수
+    arg = [spots[i] for i in range(len(spots)) if district in spots[i].get('district')] # 리스트 함축 기능을 이용하여 필터링한 후, arg 리스트에 넣기
+    return arg                                                                          # arg 반환
+
+def filter_by_ptype(spots, ptype):                                                      # ptype으로 filter하는 함수
+    arg = [spots[i] for i in range(len(spots)) if ptype in spots[i].get('ptype')]       # 리스트 함축 기능을 이용하여 필터링한 후, arg 리스트에 넣기
+    return arg                                                                          # arg 반환
+
+def filter_by_location(spots, locations):                                                                               # location으로 filter하는 함수
+    arg = [spots[i] for i in range(len(spots)) if locations[0] < float(spots[i].get('latitude')) < locations[1] and     # 리스트 함축 기능을 이용하여 필터링한 후, arg 리스트에 넣기
+                                                locations[2] < float(spots[i].get('longitude')) < locations[3]]         # 조건문을 이용하여 범위 설정
+    return arg                                                                                                          # arg 반환
+
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
     print("Testing the module...")
     # version#2
     # import file_manager
-    # str_list = file_manager.read_file("./input/free_parking_spot_seoul.csv")
+    # str_list = file_manager.read_file("./input/free_parking_spot.csv")
     # spots = str_list_to_class_list(str_list)
     # print_spots(spots)
 

@@ -24,26 +24,27 @@ def start_process(path):
             select = int(input('type:'))
             if select == 1:
                 keyword = input('type name:')
-                print("not implemented yet")
+                spots = parking_spot_manager.filter_by_name(spots, keyword)         # parking_spot_manager 모듈의 filter 함수를 쓴 다음, 기존의 list를 삭제하고 저장
                 # fill this block
             elif select == 2:
                 keyword = input('type city:')
-                print("not implemented yet")
+                spots = parking_spot_manager.filter_by_city(spots, keyword)         # parking_spot_manager 모듈의 filter 함수를 쓴 다음, 기존의 list를 삭제하고 저장
                 # fill this block
             elif select == 3:
                 keyword = input('type district:')
-                print("not implemented yet")
+                spots = parking_spot_manager.filter_by_district(spots, keyword)     # parking_spot_manager 모듈의 filter 함수를 쓴 다음, 기존의 list를 삭제하고 저장
                 # fill this block
             elif select == 4:
                 keyword = input('type ptype:')
-                print("not implemented yet")
+                spots = parking_spot_manager.filter_by_ptype(spots, keyword)        # parking_spot_manager 모듈의 filter 함수를 쓴 다음, 기존의 list를 삭제하고 저장
                 # fill this block
             elif select == 5:
                 min_lat = float(input('type min lat:'))
-                max_lat = float(input('type max lat:'))
+                max_lat = float(input('type max lat:')) 
                 min_lon = float(input('type min long:'))
                 max_lon = float(input('type max long:'))
-                print("not implemented yet")
+                locations = (min_lat, max_lat, min_lon, max_lon)                      # 입력 받은 값들을 tuple로 keyword에 저장
+                spots = parking_spot_manager.filter_by_location(spots, locations)     # parking_spot_manager 모듈의 filter 함수를 쓴 다음, 기존의 list를 삭제하고 저장
                 # fill this block
             else:
                 print("invalid input")
