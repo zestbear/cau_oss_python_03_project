@@ -1,11 +1,31 @@
 class parking_spot:
     # you have to implement 'constructor(생성자)' and 'get' method
+    def __init__(self, name, city, district, ptype, longitude, latitude):   # name, city, district, ptype, longitude, latitude를 포함하는 생성자를 만듦
+        self.__item = {'name':name, 'city':city, 'district':district, 'ptype':ptype, 'longitude':longitude, 'latitude':latitude}
+
     def __str__(self):
         item = self.__item
         s  = f"[{item['name']}({item['ptype']})] "
         s += f"{item['city']} {item['district']}"
         s += f"(lat:{item['latitude']}, long:{item['longitude']})"
         return s
+    
+    def get(self, keyword = 'name'):                                      # keyword를 매개변수로 받으며 기본인수가 name인 함수 get
+        ret = self.__item.get(keyword)
+        return ret                                                          # __item[keyword]를 반환
+
+
+def str_list_to_class_list(str_list):                                       # str_list를 매개변수로 받아, parking_spot 클래스 객체의 리스트로 변환 후 반환
+    for i in range(len(str_list)):                                          # 모든 줄에 대해
+        temp = str_list[i].split(',')                                       # ,를 구분자로 하여 나눈 것을 temp에 저장 
+        str_list[i] = parking_spot(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6])    # 각각의 6가지 요소들을 생성자를 이용하여 클래스 객체의 리스트로 변환
+    return str_list                                                         # 변환한 리스트를 반환
+    
+
+def print_spots(spots):                                                     # 출력에 대한 함수
+    print(f"---print elements({len(spots)})---")
+    for i in range(len(spots)):
+        print(str(spots[i]))
 
 
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
@@ -13,7 +33,7 @@ if __name__ == '__main__':
     print("Testing the module...")
     # version#2
     # import file_manager
-    # str_list = file_manager.from_file("./input/free_parking_spot_seoul.csv")
+    # str_list = file_manager.read_file("./input/free_parking_spot_seoul.csv")
     # spots = str_list_to_class_list(str_list)
     # print_spots(spots)
 
